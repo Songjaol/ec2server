@@ -53,13 +53,15 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         
         // 7. React 앱의 주소(localhost:3000)를 허용
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedOrigins(Arrays.asList("http://15.164.175.224:3000","http://localhost:3000"));
         
         // 8. 허용할 HTTP 메서드 (OPTIONS 포함)
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         
         // 9. 허용할 HTTP 헤더 (Authorization 헤더 등)
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Cache-Control"));
+
+        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         // 모든 경로("/**")에 대해 위에서 정의한 CORS 설정 적용

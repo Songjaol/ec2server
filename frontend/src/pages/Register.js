@@ -67,7 +67,7 @@ export const Register = () => {
             alert("회원가입에 성공했습니다!");
             navigate('/'); // 로그인 페이지로 돌아감
         }
-
+        
     } catch (error) {
         console.error("Registration error:", error);
         if (error.response && error.response.status === 400) {

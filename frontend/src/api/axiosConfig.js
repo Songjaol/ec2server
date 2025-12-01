@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://15.164.175.224:8081/",   // EC2 퍼블릭 IP로 변경
+    baseURL: "http://15.164.175.224:8081",   // EC2 퍼블릭 IP로 변경
 });
 
 api.interceptors.request.use(
