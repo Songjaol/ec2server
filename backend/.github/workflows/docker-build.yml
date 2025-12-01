@@ -1,0 +1,39 @@
+name: Docker Build (All Branches)
+
+on:
+  push:
+    branches: ["**"]      # 모든 브랜치에서 실행
+  workflow_dispatch:       # 수동 실행 가능
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      ##################################################
+      # 프로젝트 위치 자동 탐지
+      ##################################################
+      - name: Detect project directory
+        id: detect
+        run: |
+          if [ -d "./feature/server" ]; then
+            echo "project_dir=./feature/server" >> $GITHUB_OUTPUT
+          else
+            echo "project_dir=." >> $GITHUB_OUTPUT
+          fi
+
+      ##################################################
+      # Docker Buildx 설치
+      ##################################################
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      ##################################################
+      # Docker 이미지 빌드
+      ##################################################
+      - name: Build Docker image
+        run: |
+          docker build -t food-recommend-backend ${{ steps.detect.outputs.project_dir }}

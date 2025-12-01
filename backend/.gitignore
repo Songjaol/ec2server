@@ -1,0 +1,79 @@
+# ============================
+# 🧱 Gradle
+# ============================
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ============================
+# 💡 Spring Tool Suite (STS)
+# ============================
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# ============================
+# 💻 IntelliJ IDEA
+# ============================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# ============================
+# 🧩 NetBeans
+# ============================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ============================
+# 🔒 비밀키, 환경설정
+# ============================
+# application-secret.properties (API 키 등)
+src/main/resources/application-secret.properties
+
+# Docker 환경 변수 파일 (.env)
+.env
+
+# MySQL 데이터 볼륨 (Docker 컨테이너 내부 데이터)
+mysql/data/
+mysql/logs/
+mysql/tmp/
+
+# ============================
+# 🧰 OS / Editor Junk
+# ============================
+.DS_Store
+Thumbs.db
+
+# ============================
+# 🧠 Visual Studio Code
+# ============================
+.vscode/
+
+# ============================
+# 🧪 Logs / Temp
+# ============================
+*.log
+logs/
+tmp/
+
+# Allow gradle wrapper scripts
+!/gradlew
+!/gradlew.bat
+!/gradle/wrapper/**

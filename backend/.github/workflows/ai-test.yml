@@ -1,0 +1,26 @@
+name: Test Ollama LLM
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-ollama:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          sudo systemctl start ollama
+
+      - name: Pull Gemma Model
+        run: |
+          ollama pull gemma3:4b
+
+      - name: Run simple test
+        run: |
+          echo "Testing gemma3:4b..."
+          ollama run gemma3:4b "안녕" || true

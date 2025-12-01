@@ -1,0 +1,74 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>지역 맛집 검색</title>-->
+<!--    <style>-->
+<!--        body { font-family: 'Pretendard', sans-serif; background: #fafafa; margin: 40px; }-->
+<!--        h1 { color: #333; text-align: center; }-->
+<!--        #search-box { text-align: center; margin-bottom: 20px; }-->
+<!--        input { width: 250px; padding: 8px; border-radius: 8px; border: 1px solid #ccc; }-->
+<!--        button { padding: 8px 14px; border: none; background: #007bff; color: white; border-radius: 6px; cursor: pointer; }-->
+<!--        button:hover { background: #0056b3; }-->
+<!--        #results { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }-->
+<!--        .card {-->
+<!--          background: white; border-radius: 10px; padding: 15px; width: 300px;-->
+<!--          box-shadow: 0 2px 6px rgba(0,0,0,0.1);-->
+<!--        }-->
+<!--        .card h3 { margin: 0 0 5px 0; color: #222; }-->
+<!--        .card p { margin: 2px 0; color: #666; font-size: 14px; }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>🍽 지역 맛집 검색</h1>-->
+
+<!--<div id="search-box">-->
+<!--    <input type="text" id="region" placeholder="예: 홍대 맛집" />-->
+<!--    <button onclick="search()">검색</button>-->
+<!--</div>-->
+
+<!--<div id="results"></div>-->
+
+<!--<script>-->
+<!--    async function search() {-->
+<!--     let region = document.getElementById('region').value.trim();-->
+<!--     if (!region) {-->
+<!--       alert('지역명을 입력해주세요!');-->
+<!--       return;-->
+<!--     }-->
+
+<!--     // ✅ 자동 공백 보정: “수원맛집” → “수원 맛집”-->
+<!--     if (!region.includes(" ") && region.endsWith("맛집")) {-->
+<!--       region = region.replace("맛집", " 맛집");-->
+<!--     }-->
+
+<!--     document.getElementById('results').innerHTML = "<p>⏳ 데이터를 불러오는 중...</p>";-->
+
+<!--     try {-->
+<!--       const res = await fetch(`/restaurants?region=${encodeURIComponent(region)}`);-->
+<!--       const data = await res.json();-->
+
+<!--       if (data.length === 0) {-->
+<!--         document.getElementById('results').innerHTML = "<p>❌ 결과가 없습니다.</p>";-->
+<!--         return;-->
+<!--       }-->
+
+<!--       const html = data.map(r => `-->
+<!--         <div class="card">-->
+<!--            <h3><a href="${r.placeUrl}" target="_blank">${r.name}</a></h3>-->
+<!--           <p>${r.category || '카테고리 정보 없음'}</p>-->
+<!--           <p>${r.address}</p>-->
+<!--           <p>📞 ${r.phone || '전화번호 없음'}</p>-->
+<!--         </div>-->
+<!--       `).join('');-->
+
+<!--       document.getElementById('results').innerHTML = html;-->
+
+<!--     } catch (err) {-->
+<!--       console.error(err);-->
+<!--       document.getElementById('results').innerHTML = "<p>⚠️ 오류가 발생했습니다.</p>";-->
+<!--     }-->
+<!--   }-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

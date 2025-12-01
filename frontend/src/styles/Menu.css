@@ -1,0 +1,92 @@
+/* 전체 페이지 */
+.moodfood-page {
+  background-color: #FAF5E9; /* 따뜻한 아이보리톤 배경 */
+  min-height: 100vh;
+  padding: 40px 80px;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 헤더 */
+.moodfood-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+
+/* 감정 배너 */
+.mood-banner {
+  display: flex;
+  align-items: center;
+  background-color: #f5d49a;
+  border-radius: 40px;
+  padding: 25px 40px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.mood-emoji {
+  font-size: 50px;
+  margin-right: 20px;
+}
+
+.mood-text h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.mood-text p {
+  font-size: 16px;
+  margin-top: 6px;
+  color: #fff;
+}
+
+/* 제목 줄 */
+.mood-section-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 카드 리스트 (3개씩 정렬) */
+.restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* 개별 카드 */
+.restaurant-card {
+  background: linear-gradient(180deg, #fef5ef 0%, #fff 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 카드 내용 */
+.restaurant-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.restaurant-content .category {
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.restaurant-content .address {
+  font-size: 14px;
+  color: #999;
+}
